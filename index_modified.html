@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Техніки Спокою</title>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      height: 100vh;
+      transition: background-color 2s ease-in-out;
+      font-family: 'Comfortaa', cursive;
+      color: #333;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .background-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.5;
+      background-color: inherit;
+      animation: pulse 6s infinite alternate;
+      z-index: 0;
+      transition: background-color 2s ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.5; }
+      100% { opacity: 0.7; }
+    }
+
+    .centered-image-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      z-index: 1;
+    }
+
+    .centered-image-container img {
+      max-width: 75%;
+      max-height: 75%;
+      width: auto;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4);
+      transition: all 1s ease;
+      object-fit: cover;
+    }
+
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 32px;
+      color: #555;
+      cursor: pointer;
+      z-index: 1002;
+      background: rgba(255,255,255,0.7);
+      padding: 8px 12px;
+      border-radius: 10px;
+      transition: background 0.3s;
+    }
+    .menu-icon:hover {
+      background: rgba(255,255,255,0.9);
+    }
+
+    .side-menu {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 300px;
+      height: 100%;
+      background-color: #fffefc;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.4);
+      padding: 20px;
+      transition: right 0.5s ease;
+      z-index: 1001;
+      overflow-y: auto;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .side-menu.show {
+      right: 0;
+    }
+
+    .side-menu h2 {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 22px;
+    }
+
+    .side-menu ul {
+      padding-left: 20px;
+      list-style-type: square;
+    }
+    .side-menu li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-overlay" id="backgroundOverlay"></div>
+
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <div class="centered-image-container">
+    <img id="mainImage" src="" alt="Картинка заспокоєння" />
+  </div>
+
+  <div class="side-menu" id="menu">
+    <h2>Техніки дихання</h2>
+    <ul>
+      <li><b>4-7-8 Дихання:</b> вдих на 4 секунди, затримка дихання на 7 секунд, повільний видих на 8 секунд. Повторити 4-8 разів для заспокоєння нервової системи.</li>
+      <li><b>Дихання квадратом (4-4-4-4):</b> вдих — 4 секунди, затримка — 4 секунди, видих — 4 секунди, затримка — 4 секунди. Синхронізує дихання й знижує тривожність.</li>
+      <li><b>Глибоке черевне дихання:</b> вдихати через ніс, наповнюючи повітрям живіт, а не грудну клітку. Видихати повільно через рот. Допомагає зняти напругу.</li>
+      <li><b>Двійне дихання:</b> два швидких вдихи через ніс, потім повільний довгий видих через рот. Зменшує стрес і допомагає швидко розслабитись.</li>
+      <li><b>Альтернативне дихання через ніздрі:</b> закрити одну ніздрю, вдихнути через іншу, потім змінити сторону. Балансує емоції та настрій.</li>
+    </ul>
+
+    <h2>Техніки боротьби з панічною атакою</h2>
+    <ul>
+      <li><b>Метод 5-4-3-2-1 (Заземлення):</b> Назвати 5 речей, які бачиш, 4 речі, які чуєш, 3 речі, які відчуваєш, 2 запахи і 1 смак. Повертає увагу до реальності.</li>
+      <li><b>Контроль дихання:</b> Під час паніки сконцентруватися лише на повільному рівному диханні, щоб заспокоїти тіло.</li>
+      <li><b>Техніка розслаблення м'язів:</b> Почергово напружувати і розслабляти м'язи від пальців ніг до обличчя. Допомагає зняти фізичну напругу.</li>
+      <li><b>Фокус на навколишньому середовищі:</b> Уважно роздивлятись дрібні деталі навколо себе: кольори, форми, текстури.</li>
+      <li><b>Використання заспокійливих фраз:</b> Повторюй собі: "Я в безпеці. Це пройде. Моє тіло відновлюється."</li>
+    </ul>
+  </div>
+
+  <script>
+    const images = [
+      { url: "https://i.imgur.com/Mw833F2.jpg", color: "#d3e5f5" },
+      { url: "https://i.imgur.com/ySRieoi.jpg", color: "#f5e3e6" },
+      { url: "https://i.imgur.com/f3lXmrU.jpg", color: "#e4f5e5" },
+      { url: "https://i.imgur.com/DznfqX5.jpg", color: "#fff5d6" },
+      { url: "https://i.imgur.com/l2VsE88.jpg", color: "#f0e3ff" },
+      { url: "https://i.imgur.com/iPV2qng.jpg", color: "#ffe4d3" }
+    ];
+
+    let availableImages = [...images];
+
+    function changeBackground() {
+      if (availableImages.length === 0) {
+        availableImages = [...images];
+      }
+
+      const index = Math.floor(Math.random() * availableImages.length);
+      const selected = availableImages.splice(index, 1)[0];
+
+      document.getElementById('mainImage').src = selected.url;
+      document.body.style.backgroundColor = selected.color;
+      document.getElementById('backgroundOverlay').style.backgroundColor = selected.color;
+    }
+
+    window.onload = changeBackground;
+
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
